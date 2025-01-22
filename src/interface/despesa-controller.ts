@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
 import { CreateDespesaUseCase } from '../application/use-cases/create-despesa-use-case';
 import { GetDespesasByUserUseCase } from '../application/use-cases/get-despesas-by-user-use-case';
-import { DeleteDespesaUseCase } from '../application/use-cases/delete-despesa-use-case';
+//import { DeleteDespesaUseCase } from '../application/use-cases/delete-despesa-use-case';
 import { Despesa } from '../domain/despesa';
 
 export class DespesaController {
     constructor(
         private createDespesaUseCase: CreateDespesaUseCase,
         private getDespesasByUserCase: GetDespesasByUserUseCase,
-        private deleteDespesaUseCase: DeleteDespesaUseCase
+        //private deleteDespesaUseCase: DeleteDespesaUseCase
 
     ){}
 
@@ -25,13 +25,13 @@ export class DespesaController {
 
     }
 
-    async delete(req: Request, res: Response) {
-        const despesaId = req.params.id;
-        try {
-           await this.deleteDespesaUseCase.execute(despesaId);
-            res.status(204).send();
-        } catch (error) {
-            res.status(500).json({ message: 'Erro ao excluir despesa', error });
-        }
-    }
+    //async delete(req: Request, res: Response) {
+       // const despesaId = req.params.id;
+       // try {
+          // await this.deleteDespesaUseCase.execute(despesaId);
+           // res.status(204).send();
+        //} catch (error) {
+            //res.status(500).json({ message: 'Erro ao excluir despesa', error });
+       // }
+    //}//
 }

@@ -25,25 +25,4 @@ export class RepositoryData implements DespesaRepository {
 
     return translatedDespesas;
     }
-
-    //async findById(id: string): Promise<Despesa | null> {
-        //const despesa = await DespesaModel.findById//(id) as DespesaDocument | null
-       // if (!despesa) return null;
-        //return {
-          //  id: despesa._id.toString(),
-           // descricao: despesa.descricao,
-         //   categoria: despesa.categoria,
-           // valor: despesa.valor,
-            //tipo: despesa.tipo,
-            //data: despesa.data,
-            //userId: despesa.userId
-        //};
-    //}
-
-    
-    //async delete(id: string): Promise<void> {
-     //   await DespesaModel.findByIdAndDelete(id);
-    //}
-
-   
 }

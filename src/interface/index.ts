@@ -5,17 +5,16 @@ import { connectDB } from '../infrastructure/database/connection'
 import dotenv from 'dotenv'
 dotenv.config();
 
-//seu codigo aqui
 export const app = express();
 connectDB();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-const { despesaController } = configureDependencies();
+const { despesaController, chatController } = configureDependencies();
 
-app.post('/despesa', (req, res) => despesaController.create(req, res));
-app.get('/despesas/:userId', (req, res) => despesaController.findAll(req, res));
-//app.delete('despesa/:id', (req, res) => despesaController.delete(req, res));
+app.post('/despesas', (req, res) => despesaController.create(req, res));
+app.get('/despesas/:userId', (req, res) => despesaController.getAll(req, res));
+app.post('/chat', (req, res) => chatController.open(req, res));
 
 if (require.main === module) {
   const PORT = process.env.PORT || 3333;

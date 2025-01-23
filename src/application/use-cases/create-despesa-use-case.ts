@@ -2,16 +2,16 @@ import { Despesa } from '../../domain/despesa';
 import { DespesaRepository } from '../repositores/despesa-repository';
 
 export class CreateDespesaUseCase {
-    constructor(private despesaRepository: DespesaRepository) {}
+    constructor(
+        private despesaRepository: DespesaRepository,
+    ){}
 
-    async execute(params: Partial<Despesa>): Promise<Despesa> {
+    execute(despesaParams: Partial<Despesa>): Despesa {
         const despesa = {
-            ...params
+            ...despesaParams
         } as Despesa;
 
-        await this.despesaRepository.save(despesa);
+        this.despesaRepository.save(despesa);
         return despesa;
-    }
-
-
+    } 
 }

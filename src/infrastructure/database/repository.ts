@@ -25,4 +25,14 @@ export class RepositoryData implements DespesaRepository {
 
     return translatedDespesas;
     }
+
+    async delete(id: string): Promise<void> {
+        const result = await DespesaModel.deleteOne({ _id: id });
+
+        if (result.deletedCount === 0) {
+            throw new Error('Drspesa não encontrada');
+        }
+
+    }
+    
 }

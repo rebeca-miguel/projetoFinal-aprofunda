@@ -15,6 +15,7 @@ const { despesaController, chatController } = configureDependencies();
 app.post('/despesas', (req, res) => despesaController.create(req, res));
 app.get('/despesas/:userId', (req, res) => despesaController.getAll(req, res));
 app.post('/chat', (req, res) => chatController.open(req, res));
+app.delete('/despesas/:id', (req, res) => despesaController.delete(req, res) )
 
 if (require.main === module) {
   const PORT = process.env.PORT || 3333;
